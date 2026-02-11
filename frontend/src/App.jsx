@@ -8,10 +8,10 @@ function App() {
 
   useEffect(() => {
     const getStatus = async () => {
-      const [status, setStatus] = useState("");
       const res = await fetch("http://localhost:5000/api/health");
-      setStatus(res.status);
-      setDb(res.db);
+      const resJson = await res.json();
+      setStatus(resJson.status);
+      setDb(resJson.db);
     };
     getStatus();
   }, []);
