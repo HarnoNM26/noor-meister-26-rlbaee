@@ -20,6 +20,9 @@ function App() {
     <>
       <p>Status: {status}</p>
       <p>Database: {db}</p>
+
+      <input type="date" name="start" id="start" />
+      <input type="date" name="end" id="end" />
     </>
   );
 }

@@ -54,6 +54,22 @@ app.get("/api/health", async (req, res) => {
   }
 });
 
+app.post("/api/sync/prices", async (req, res) => {
+  console.log(req.body);
+  const params = new URLSearchParams({
+    start: req.body.start,
+    end: req.body.end,
+    fields: req.body.fields.map((field) => field),
+  }).toString();
+
+  console.log("https://dashboard.elering.ee/api/nps/price?" + params);
+
+  const fetchRes = await fetch(
+    `https://dashboard.elering.ee/api/nps/price?start=${req.body.start}?end=${req.body.end}?fields=${params.fields}`,
+  );
+  res.send(await fetchRes.json());
+});
+
 app.post("/api/import/json", async (req, res) => {
   try {
     mongoose.connect(
