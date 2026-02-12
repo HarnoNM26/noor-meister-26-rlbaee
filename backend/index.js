@@ -65,7 +65,7 @@ app.post("/api/sync/prices", async (req, res) => {
   console.log("https://dashboard.elering.ee/api/nps/price?" + params);
 
   const fetchRes = await fetch(
-    `https://dashboard.elering.ee/api/nps/price?start=${req.body.start}?end=${req.body.end}?fields=${params.fields}`,
+    "https://dashboard.elering.ee/api/nps/price?" + params,
   );
   res.send(await fetchRes.json());
 });
