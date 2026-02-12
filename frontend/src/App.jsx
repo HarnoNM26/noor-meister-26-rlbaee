@@ -10,10 +10,6 @@ function App() {
   const [fields, setFields] = useState([]);
   const [data, setData] = useState([]);
 
-  (() => {
-    console.log("yo");
-  })();
-
   const handleSubmit = async () => {
     const newStartDate = new Date(startDate);
     const newEndDate = new Date(endDate);
@@ -51,7 +47,6 @@ function App() {
       setStatus(resJson.status);
       setDb(resJson.db);
     };
-    // getStatus();
   }, []);
 
   return (
@@ -74,9 +69,11 @@ function App() {
 
       <div className="data">
         <table>
-          {/* {data.map((row) => (
-            <tr>{row}</tr>
-          ))} */}
+          <tr>
+            <thead>
+              <td></td>
+            </thead>
+          </tr>
         </table>
       </div>
     </>
